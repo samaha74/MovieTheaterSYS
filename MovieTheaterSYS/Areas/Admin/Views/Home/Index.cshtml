@@ -1,10 +1,76 @@
 ﻿<div class="row g-3 mb-3">
+
+
+
+    <div class="col-xxl-6 col-xl-12">
+        <div class="card py-3 mb-3">
+            <div class="card-body py-3">
+                <div class="row g-0">
+                    <div class="col-6 col-md-6 border-200 border-bottom border-end pb-4">
+                        <h4 class="pb-1 text-700">Movies </h4>
+                        <p class="font-sans-serif lh-1 mb-1 fs-7">@ViewBag.Movies </p>
+                    </div>
+                    <div class="col-6 col-md-6 border-200 border-bottom border-end-md pb-4">
+                        <h4 class="pb-1 text-700">Categories </h4>
+                        <p class="font-sans-serif lh-1 mb-1 fs-7">@ViewBag.Categories </p>
+
+                    </div>
+                    <div class="col-6 col-md-6 border-200 border-200 border-bottom border-end-md pb-4">
+                        <h4 class="pb-1 text-700">Cinemas </h4>
+                        <p class="font-sans-serif lh-1 mb-1 fs-7"> @ViewBag.Cinemas</p>
+
+                    </div>
+                    <div class="col-6 col-md-6 border-200 border-200 border-bottom border-end-md pb-4">
+                        <h4  class="pb-1 text-700">Actors </h4>
+                        <p class="font-sans-serif lh-1 mb-1 fs-7">@ViewBag.Actors </p>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="row flex-between-center g-0">
+                    <div class="col-auto">
+                        <h6 class="mb-0">Total Sales</h6>
+                    </div>
+                    <div class="col-auto d-flex">
+                        <div class="form-check mb-0 d-flex">
+                            <input class="form-check-input form-check-input-primary" id="ecommerceLastMonth" type="checkbox" checked="checked" />
+                            <label class="form-check-label ps-2 fs-11 text-600 mb-0" for="ecommerceLastMonth">Last Month<span class="text-1100 d-none d-md-inline">: $32,502.00</span></label>
+                        </div>
+                        <div class="form-check mb-0 d-flex ps-0 ps-md-3">
+                            <input class="form-check-input ms-2 form-check-input-warning opacity-75" id="ecommercePrevYear" type="checkbox" checked="checked" />
+                            <label class="form-check-label ps-2 fs-11 text-600 mb-0" for="ecommercePrevYear">Prev Year<span class="text-1100 d-none d-md-inline">: $46,018.00</span></label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="dropdown font-sans-serif btn-reveal-trigger">
+                            <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-total-sales-ecomm" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs-11"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales-ecomm">
+                                <a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pe-xxl-0">
+                <!-- Find the JS file for the following chart at: src/js/charts/echarts/total-sales-ecommerce.js-->
+                <!-- If you are not using gulp based workflow, you can find the transpiled code at: public/assets/js/theme.js-->
+                <div class="echart-line-total-sales-ecommerce" data-echart-responsive="true" data-options='{"optionOne":"ecommerceLastMonth","optionTwo":"ecommercePrevYear"}'></div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="col-xxl-6 col-xl-12">
         <div class="row g-3">
             <div class="col-12">
                 <div class="card bg-transparent-50 overflow-hidden">
                     <div class="card-header position-relative">
-                        <div class="bg-holder d-none d-md-block bg-card z-1" style="background-image:url(../assets/img/illustrations/ecommerce-bg.png);background-size:230px;background-position:right bottom;z-index:-1;">
+                        <div class="bg-holder d-none d-md-block bg-card z-1" style="background-image:url(~/assets/img/illustrations/ecommerce-bg.png);background-size:230px;background-position:right bottom;z-index:-1;">
                         </div>
                         <!--/.bg-holder-->
 
@@ -397,7 +463,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-0" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Sylvia Plath</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Sylvia Plath</a></th>
                                 <td class="align-middle white-space-nowrap email">john@gmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Slick - Drag &amp; Drop Bootstrap Generator</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -420,7 +486,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-1" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Homer</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Homer</a></th>
                                 <td class="align-middle white-space-nowrap email">sylvia@mail.ru</td>
                                 <td class="align-middle white-space-nowrap product">Bose SoundSport Wireless Headphones</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -443,7 +509,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-2" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Edgar Allan Poe</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Edgar Allan Poe</a></th>
                                 <td class="align-middle white-space-nowrap email">edgar@yahoo.com</td>
                                 <td class="align-middle white-space-nowrap product">All-New Fire HD 8 Kids Edition Tablet</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -466,7 +532,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-3" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">William Butler Yeats</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">William Butler Yeats</a></th>
                                 <td class="align-middle white-space-nowrap email">william@gmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Apple iPhone XR (64GB)</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -489,7 +555,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-4" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Rabindranath Tagore</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Rabindranath Tagore</a></th>
                                 <td class="align-middle white-space-nowrap email">tagore@twitter.com</td>
                                 <td class="align-middle white-space-nowrap product">ASUS Chromebook C202SA-YS02 11.6&quot;</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -512,7 +578,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-5" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Emily Dickinson</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Emily Dickinson</a></th>
                                 <td class="align-middle white-space-nowrap email">emily@gmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Mirari OK to Wake! Alarm Clock &amp; Night-Light</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -535,7 +601,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-6" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Giovanni Boccaccio</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Giovanni Boccaccio</a></th>
                                 <td class="align-middle white-space-nowrap email">giovanni@outlook.com</td>
                                 <td class="align-middle white-space-nowrap product">Summer Infant Contoured Changing Pad</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -558,7 +624,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-7" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Oscar Wilde</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Oscar Wilde</a></th>
                                 <td class="align-middle white-space-nowrap email">oscar@hotmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Munchkin 6 Piece Fork and Spoon Set</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -581,7 +647,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-8" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">John Doe</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">John Doe</a></th>
                                 <td class="align-middle white-space-nowrap email">doe@gmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Falcon - Responsive Dashboard Template</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -604,7 +670,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-9" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Emma Watson</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Emma Watson</a></th>
                                 <td class="align-middle white-space-nowrap email">emma@gmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Apple iPhone XR (64GB)</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -627,7 +693,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-10" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Sylvia Plath</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Sylvia Plath</a></th>
                                 <td class="align-middle white-space-nowrap email">plath@yahoo.com</td>
                                 <td class="align-middle white-space-nowrap product">All-New Fire HD 8 Kids Edition Tablet</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -650,7 +716,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-11" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Rabindranath Tagore</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Rabindranath Tagore</a></th>
                                 <td class="align-middle white-space-nowrap email">Rabindra@gmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Apple iPhone XR (64GB)</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -673,7 +739,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-12" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Anila Wilde</a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Anila Wilde</a></th>
                                 <td class="align-middle white-space-nowrap email">anila@yahoo.com</td>
                                 <td class="align-middle white-space-nowrap product">All-New Fire HD 8 Kids Edition Tablet</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -696,7 +762,7 @@
                                         <input class="form-check-input" type="checkbox" id="recent-purchase-13" data-bulk-select-row="data-bulk-select-row" />
                                     </div>
                                 </td>
-                                <th class="align-middle white-space-nowrap name"><a href="../app/e-commerce/customer-details.html">Jack Watson </a></th>
+                                <th class="align-middle white-space-nowrap name"><a href="~/app/e-commerce/customer-details.html">Jack Watson </a></th>
                                 <td class="align-middle white-space-nowrap email">Jack@gmail.com</td>
                                 <td class="align-middle white-space-nowrap product">Apple iPhone XR (64GB)</td>
                                 <td class="align-middle text-center fs-9 white-space-nowrap payment">
@@ -827,7 +893,7 @@
                             <tr class="border-bottom border-200">
                                 <td>
                                     <div class="d-flex align-items-center position-relative">
-                                        <img class="rounded-1 border border-200" src="../assets/img/ecommerce/1.jpg" width="60" alt="" />
+                                        <img class="rounded-1 border border-200" src="~/assets/img/ecommerce/1.jpg" width="60" alt="" />
                                         <div class="flex-1 ms-3">
                                             <h6 class="mb-1 fw-semi-bold text-nowrap"><a class="text-900 stretched-link" href="#!">iPad Pro 2020 11</a></h6>
                                             <p class="fw-semi-bold mb-0 text-500">Tablet</p>
@@ -849,7 +915,7 @@
                             <tr class="border-bottom border-200">
                                 <td>
                                     <div class="d-flex align-items-center position-relative">
-                                        <img class="rounded-1 border border-200" src="../assets/img/ecommerce/2.jpg" width="60" alt="" />
+                                        <img class="rounded-1 border border-200" src="~/assets/img/ecommerce/2.jpg" width="60" alt="" />
                                         <div class="flex-1 ms-3">
                                             <h6 class="mb-1 fw-semi-bold text-nowrap"><a class="text-900 stretched-link" href="#!">iPhone XS</a></h6>
                                             <p class="fw-semi-bold mb-0 text-500">Smartphone</p>
@@ -871,7 +937,7 @@
                             <tr class="border-bottom border-200">
                                 <td>
                                     <div class="d-flex align-items-center position-relative">
-                                        <img class="rounded-1 border border-200" src="../assets/img/ecommerce/3.jpg" width="60" alt="" />
+                                        <img class="rounded-1 border border-200" src="~/assets/img/ecommerce/3.jpg" width="60" alt="" />
                                         <div class="flex-1 ms-3">
                                             <h6 class="mb-1 fw-semi-bold text-nowrap"><a class="text-900 stretched-link" href="#!">Amazfit Pace (Global)</a></h6>
                                             <p class="fw-semi-bold mb-0 text-500">Smartwatch</p>
@@ -893,7 +959,7 @@
                             <tr class="border-bottom border-200">
                                 <td>
                                     <div class="d-flex align-items-center position-relative">
-                                        <img class="rounded-1 border border-200" src="../assets/img/ecommerce/4.jpg" width="60" alt="" />
+                                        <img class="rounded-1 border border-200" src="~/assets/img/ecommerce/4.jpg" width="60" alt="" />
                                         <div class="flex-1 ms-3">
                                             <h6 class="mb-1 fw-semi-bold text-nowrap"><a class="text-900 stretched-link" href="#!">Lotto AMF Posh Sports Plus</a></h6>
                                             <p class="fw-semi-bold mb-0 text-500">Shoes</p>
@@ -915,7 +981,7 @@
                             <tr class="border-bottom border-200">
                                 <td>
                                     <div class="d-flex align-items-center position-relative">
-                                        <img class="rounded-1 border border-200" src="../assets/img/ecommerce/5.jpg" width="60" alt="" />
+                                        <img class="rounded-1 border border-200" src="~/assets/img/ecommerce/5.jpg" width="60" alt="" />
                                         <div class="flex-1 ms-3">
                                             <h6 class="mb-1 fw-semi-bold text-nowrap"><a class="text-900 stretched-link" href="#!">Casual Long Sleeve Hoodie</a></h6>
                                             <p class="fw-semi-bold mb-0 text-500">Jacket</p>
@@ -937,7 +1003,7 @@
                             <tr class="border-bottom border-200">
                                 <td>
                                     <div class="d-flex align-items-center position-relative">
-                                        <img class="rounded-1 border border-200" src="../assets/img/ecommerce/6.jpg" width="60" alt="" />
+                                        <img class="rounded-1 border border-200" src="~/assets/img/ecommerce/6.jpg" width="60" alt="" />
                                         <div class="flex-1 ms-3">
                                             <h6 class="mb-1 fw-semi-bold text-nowrap"><a class="text-900 stretched-link" href="#!">Playstation 4 1TB Slim</a></h6>
                                             <p class="fw-semi-bold mb-0 text-500">Console</p>
@@ -959,7 +1025,7 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center position-relative">
-                                        <img class="rounded-1 border border-200" src="../assets/img/ecommerce/7.jpg" width="60" alt="" />
+                                        <img class="rounded-1 border border-200" src="~/assets/img/ecommerce/7.jpg" width="60" alt="" />
                                         <div class="flex-1 ms-3">
                                             <h6 class="mb-1 fw-semi-bold text-nowrap"><a class="text-900 stretched-link" href="#!">SUNGAIT Lightweight Sunglass</a></h6>
                                             <p class="fw-semi-bold mb-0 text-500">Jacket</p>

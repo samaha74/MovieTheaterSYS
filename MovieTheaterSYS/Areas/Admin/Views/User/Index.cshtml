@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MovieTheaterSYS.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="d-flex flex-row flex-between-center">
+    Users
+    <p>
+        <a asp-action="Create" class="btn bg-success text-white">Create New</a>
+    </p>
+</h1>
+
+
+<hr
+<br />
+<br />
+
+
+
+
+
+
+
+<div class="card-body px-0 py-0">
+    <div class="table-responsive scrollbar">
+        <table class="table table-sm  mb-0 overflow-hidden">
+            <thead class="bg-200">
+                <tr>
+                    <th class="white-space-nowrap">
+                    </th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Name</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">UserName</th>
+
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="product">Email</th>
+
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap text-center" data-sort="payment">Action</th>
+                    <th class="no-sort pe-1 align-middle data-table-row-action"></th>
+                </tr>
+            </thead>
+            <tbody class="list" id="table-purchase-body">
+                @foreach (var item in Model)
+                {
+
+                    <tr class="btn-reveal-trigger">
+                        <td class="align-middle" style="width: 28px;">
+                            <div class="form-check mb-0"></div>
+                        </td>
+                        <td class="align-middle white-space-nowrap name">@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td class="align-middle white-space-nowrap name"><a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.UserName)</a></td>
+
+
+
+                        <td class="align-middle white-space-nowrap product" class="text-white">@Html.DisplayFor(modelItem => item.Email)</td>
+
+                        <td class="align-middle text-center fs-9 white-space-nowrap payment">
+
+                            <span class="badge badge rounded-pill badge-subtle-light">
+
+                                @if(item.LockoutEnd == null)
+                                {
+                                    <a class="btn text-youtube" asp-action="LockUnlock" asp-route-id="@item.Id">Lock</a>
+                                }
+                                else
+                                {
+                                    <a class="btn text-success" asp-action="LockUnlock" asp-route-id="@item.Id ">Unlock</a>
+                                }
+
+                            </span>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

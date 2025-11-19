@@ -1,3 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
+using MovieTheaterSYS.Models;
+using MovieTheaterSYS.Repository;
+using MovieTheaterSYS.Utilities;
+
 namespace MovieTheaterSYS
 {
     public class Program
@@ -9,7 +15,17 @@ namespace MovieTheaterSYS
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidDataException("connectionString is invalid");
+
+            builder.Services.config(connectionString);
+
+            
+
+
             var app = builder.Build();
+            var scope = app.Services.CreateScope();
+            var dbInitializer = scope.ServiceProvider.GetRequiredService<IDBInitializer>();
+            dbInitializer.Initialize();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -19,6 +35,8 @@ namespace MovieTheaterSYS
                 app.UseHsts();
             }
 
+
+
             app.UseHttpsRedirection();
             app.UseRouting();
 
@@ -27,7 +45,7 @@ namespace MovieTheaterSYS
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{area=Customer}/{controller=Home}/{action=Index}/{Id?}")
                 .WithStaticAssets();
 
             app.Run();

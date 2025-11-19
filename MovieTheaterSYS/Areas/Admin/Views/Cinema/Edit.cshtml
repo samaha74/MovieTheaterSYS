@@ -1,0 +1,50 @@
+﻿@model MovieTheaterSYS.Models.Cinema
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Cinema</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="location" class="control-label"></label>
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input type="file" name="img" class="form-control" />
+                <input asp-for="img" name="img" class="form-control" hidden name="file"/>
+                <span asp-validation-for="img" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="status" /> @Html.DisplayNameFor(model => model.status)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

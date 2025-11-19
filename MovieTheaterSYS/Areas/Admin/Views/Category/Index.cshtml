@@ -1,0 +1,130 @@
+﻿@model IEnumerable<MovieTheaterSYS.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="d-flex flex-row flex-between-center">
+    Categories
+    <p>
+        <a asp-action="Create" class="btn bg-success text-white">Create New</a>
+    </p>
+</h1>
+
+
+<hr
+<br />
+<br />
+
+
+
+
+
+
+
+<div class="card-body px-0 py-0">
+    <div class="table-responsive scrollbar">
+        <table class="table table-sm  mb-0 overflow-hidden">
+            <thead class="bg-200">
+                <tr>
+                    <th class="white-space-nowrap">
+                    </th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">ID</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Name</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="email">Descripton</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="product">Status</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap text-center" data-sort="payment">Action</th>
+                    <th class="no-sort pe-1 align-middle data-table-row-action"></th>
+                </tr>
+            </thead>
+            <tbody class="list" id="table-purchase-body">
+                @foreach(var item in Model)
+                {
+                    
+                <tr class="btn-reveal-trigger">
+                    <td class="align-middle" style="width: 28px;">
+                        <div class="form-check mb-0"></div>
+                    </td>
+                        <td class="align-middle white-space-nowrap name"><a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</a></td>
+                        <td class="align-middle white-space-nowrap name"><a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a></td>
+                    
+                        <td class="align-middle white-space-nowrap email">@item.Description</td>
+                    
+                    <td class="align-middle white-space-nowrap product" class="text-white">@Html.DisplayFor(modelItem => item.status)</td>
+                    
+                    <td class="align-middle text-center fs-9 white-space-nowrap payment">
+                            <span class="badge badge rounded-pill badge-subtle-light">
+                                <a class="btn text-black" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                @if (!User.IsInRole(SD.Employee_ROLE))
+                                {
+                                <a class="btn text-youtube" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    
+                                }
+                    </td>
+                    
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model is not null)
+        {
+            
+            @foreach (var item in Model) {
+                <tr>s
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else{
+        {
+
+            <tr>
+                <td></td>
+                <td colspan="2"><span>----------------------</span> No categories available <span>----------------------</span></td>
+                <td></td>
+            </tr>
+        }
+}
+    </tbody>
+</table> *@

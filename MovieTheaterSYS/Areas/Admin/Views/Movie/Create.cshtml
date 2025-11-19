@@ -1,0 +1,103 @@
+﻿@model MovieTheaterSYS.Models.ViewModels.MovieAddVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="container">
+    <h1>Create</h1>
+
+    <h4>Movie</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-10">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">@Html.DisplayNameFor(model => model.Name)</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">@Html.DisplayNameFor(model => model.Description)</label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">@Html.DisplayNameFor(model => model.Price)</label>
+                    <input asp-for="Price" type="number" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Main Image</label>
+                    <input name="img" type="file" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sub Images</label>
+                    <input name="subimgs" multiple type="file" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label">@Html.DisplayNameFor(model => model.Date)</label>
+                    <input asp-for="Date" value="@DateTime.Today" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check mt-2">
+                    <label class="form-check-label">
+                        @Html.DisplayNameFor(model => model.status)
+                    </label>
+                    <input class="form-check-input" type="checkbox" asp-for="status" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label">@Html.DisplayNameFor(model => model.CategoryId)</label>
+                    <select asp-for="CategoryId" class="form-control">
+
+                        @foreach (var category in ViewBag.categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CinemaId" class="control-label">@Html.DisplayNameFor(model => model.CinemaId)</label>
+                    <select asp-for="CinemaId" class="form-control">
+                        @foreach (var cinema in ViewBag.cinemas)
+                        {
+                            <option value="@cinema.Id">@cinema.Name</option>
+                        }
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">@Html.DisplayNameFor(model => model.CinemaId)</label>
+                    <select id="actorSelect" asp-for="SelectedActorIds" multiple class="form-select">
+                        @foreach (var cinema in ViewBag.actors)
+                        {
+                            <option value="@cinema.Id">@cinema.Name</option>
+                        }
+                    </select>
+
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $('#actorSelect').select2({
+                placeholder: "Select actors",
+                width: '100%'
+            });
+        });
+    </script>
+}

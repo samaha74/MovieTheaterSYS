@@ -1,0 +1,45 @@
+﻿@using MovieTheaterSYS.Models
+@model IEnumerable<Movie>
+<hr />
+<div class="container">
+
+    @foreach(var i in Model)
+    {
+        <div class="col-10 p-x1 ">
+            <div class="row">
+                <div class="col-sm-5 col-md-4">
+                    <div class="position-relative h-sm-100">
+                        <a class="d-block h-100" href="../../../app/e-commerce/product/product-details.html"><img class="img-fluid object-fit-cover w-sm-100 h-sm-100 rounded-1 absolute-sm-centered" src="~/uploads/movies/@i.MainImg" alt="" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-7 col-md-8">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h5 class="mt-3 mt-sm-0"><a class="#">@i.Name</a></h5>
+                            <p class="fs-10 mb-2 mb-md-3"><a class="text-500" href="#!">Computer &amp; Accessories</a></p>
+                            <ul class="list-unstyled d-none d-lg-block">
+                                <span>@i.Description</span>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 d-flex justify-content-between flex-column">
+                            <div>
+                                <h4 class="fs-8 fs-md-7 text-warning mb-0">$@i.Price</h4>
+                                <div class="mb-2 mt-3">
+                                    <span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-300"></span><span class="ms-1">(8)</span>
+                                </div>
+                                <div class="d-none d-lg-block">
+                                    <p>
+                                        Status: <strong class="text-success">@(i.status ? "Availabel" : "Not Available")</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mt-2"><a class="btn btn-sm btn-outline-secondary border-300 d-lg-block me-2 me-lg-0" href="#!"><span class="far fa-heart"></span><span class="ms-2 d-none d-md-inline-block">Favourite</span></a><a class="btn btn-sm btn-primary d-lg-block mt-lg-2" href="#!"><span class="fas fa-cart-plus"> </span><span class="ms-2 d-none d-md-inline-block">Book</span></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    }
+
+</div>

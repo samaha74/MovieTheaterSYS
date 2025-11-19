@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MovieTheaterSYS.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="d-flex flex-row flex-between-center">
+    Movies 
+    <p>
+        <a asp-action="Create" class="btn bg-success text-white">Create New</a>
+    </p>
+</h1>
+
+
+<hr
+<br />
+<br />
+
+
+
+
+
+
+
+<div class="card-body px-0 py-0">
+    <div class="table-responsive scrollbar">
+        <table class="table table-sm  mb-0 overflow-hidden">
+            <thead class="bg-200">
+                <tr>
+                    <th class="white-space-nowrap">
+                    </th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Id</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Image</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="name">Name</th>
+
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="product">Status</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="product">Category</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap" data-sort="product">Cinema</th>
+                    <th class="text-900 sort pe-1 align-middle white-space-nowrap text-center" data-sort="payment">Action</th>
+                    <th class="no-sort pe-1 align-middle data-table-row-action"></th>
+                </tr>
+            </thead>
+            <tbody class="list" id="table-purchase-body">
+                @foreach (var item in Model)
+                {
+
+                    <tr class="btn-reveal-trigger">
+                        <td class="align-middle" style="width: 28px;">
+                            <div class="form-check mb-0"></div>
+                        </td>
+                        <td class="align-middle white-space-nowrap name">@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td class="align-middle white-space-nowrap name"><img src="~/uploads/Movies/@item.MainImg" style="width: 100px; height:auto" alt="Alternate Text" /></td>
+                        <td class="align-middle white-space-nowrap name"><a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a></td>
+
+
+
+                        <td class="align-middle white-space-nowrap product" class="text-white">@Html.DisplayFor(modelItem => item.status)</td>
+
+                        <td class="align-middle white-space-nowrap email">@item.Category.Name</td>
+                        <td class="align-middle white-space-nowrap email">@item.Cinema.Name</td>
+                        <td class="align-middle text-center fs-9 white-space-nowrap payment">
+                            <span class="badge badge rounded-pill badge-subtle-light">
+                                <a class="btn text-black" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a class="btn text-youtube" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

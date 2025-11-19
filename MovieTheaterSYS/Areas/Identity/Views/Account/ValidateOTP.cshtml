@@ -1,0 +1,34 @@
+﻿@model MovieTheaterSYS.Models.ViewModels.ValidateOTPVM
+
+@{
+    ViewData["Title"] = "ValidateOTP";
+}
+
+<h1>ValidateOTP</h1>
+
+<h4>ValidateOTPVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ValidateOTP">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group d-none">
+                <label asp-for="UserId" class="control-label">UserId</label>
+                <input asp-for="UserId" class="form-control"/>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OTP" class="control-label">OTP</label>
+                <input asp-for="OTP" class="form-control" />
+                <span asp-validation-for="OTP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Send" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

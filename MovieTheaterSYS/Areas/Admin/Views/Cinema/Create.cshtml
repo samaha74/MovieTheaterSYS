@@ -1,0 +1,48 @@
+﻿@model MovieTheaterSYS.Models.Cinema
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Cinema</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10" >
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="location" class="control-label">location</label>
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">img</label>
+                <input type="file" class="form-control" name="img" />
+                <span asp-validation-for="img" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="status" /> @Html.DisplayNameFor(model => model.status)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

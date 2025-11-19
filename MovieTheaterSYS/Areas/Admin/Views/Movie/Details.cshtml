@@ -1,0 +1,92 @@
+﻿@model MovieTheaterSYS.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MainImg)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/uploads/Movies/@Model.MainImg" style="width:200px; height:auto"/>
+
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubImgs)
+        </dt>
+        <dd class = "col-sm-10">
+            <div class="container"> 
+                @foreach (var img in ViewBag.subImgs as List<SubImgs>)
+                {
+                    <img src="~/uploads/movies/subimgs/@img.Img" style="width:75px; height:auto" />
+                }
+            </div>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class = "col-sm-2">
+            Cast
+        </dt>
+        <dd class = "col-sm-10">
+            <div class="container"> 
+                @foreach (var img in ViewBag.actors as List<Actor>)
+                {
+                    <img src="~/uploads/Actors/@img.Img" style="width:75px; height:auto" />
+                }
+            </div>
+        </dd>
+
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cinema)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cinema.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
